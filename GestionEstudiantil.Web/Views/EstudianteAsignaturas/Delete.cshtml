@@ -1,0 +1,34 @@
+@model GestionEstudiantil.Dominio.Entidades.EstudianteAsignatura
+
+@{
+    ViewData["Title"] = "Eliminar Relación";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>¿Estás seguro de que deseas eliminar esta relación?</h3>
+<div>
+    <h4>Estudiante - Asignatura</h4>
+    <hr />
+
+    <dl class="row">
+        <dt class="col-sm-3">Estudiante</dt>
+        <dd class="col-sm-9">@Model.Estudiante?.Nombre</dd>
+
+        <dt class="col-sm-3">Correo Electrónico</dt>
+        <dd class="col-sm-9">@Model.Estudiante?.CorreoElectronico</dd>
+
+        <dt class="col-sm-3">Asignatura</dt>
+        <dd class="col-sm-9">@Model.Asignatura?.Nombre</dd>
+
+        <dt class="col-sm-3">Código Asignatura</dt>
+        <dd class="col-sm-9">@Model.Asignatura?.Codigo</dd>
+    </dl>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="EstudianteId" />
+        <input type="hidden" asp-for="AsignaturaId" />
+        <button type="submit" class="btn btn-danger">Eliminar</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+    </form>
+</div>

@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Gestión Estudiantil</title>
+
+    <!-- Bootstrap y estilos -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/GestionEstudiantil.Web.styles.css" asp-append-version="true" />
+
+    <style>
+        body {
+            background: linear-gradient(to right, #f8f9fa, #e9ecef);
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            color: #212529;
+            animation: fadeIn 0.7s ease-in;
+        }
+
+        @@keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            padding: 1rem 0;
+            font-size: 0.9rem;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .navbar-brand img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fondo animado -->
+    <div id="particles-js" style="position: fixed; z-index: -1; width: 100%; height: 100%; top: 0; left: 0;"></div>
+
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-white border-bottom shadow-sm mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" asp-controller="Home" asp-action="Index">
+                    <img src="https://b2bmarketplace.procolombia.co/sites/default/files/styles/max_325x325/public/companies/Logo%20%281%29.png" alt="Logo" />
+                    Gestión Estudiantil
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Estudiantes" asp-action="Index">Estudiantes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Asignaturas" asp-action="Index">Asignaturas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="EstudianteAsignaturas" asp-action="Index">Relaciones</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacidad</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer>
+        <div class="container">
+            <small>© @DateTime.Now.Year - Desarrollado por <strong>Santiago Vélez Zapata</strong> • Medellín, Colombia 🇨🇴</small>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS("particles-js", {
+            "particles": {
+                "number": { "value": 60, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#0d6efd" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.4, "random": true },
+                "size": { "value": 4, "random": true },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0d6efd",
+                    "opacity": 0.3,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 2,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "bounce",
+                    "bounce": true
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": { "enable": true, "mode": "grab" },
+                    "onclick": { "enable": false },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": { "distance": 140, "line_linked": { "opacity": 0.5 } }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

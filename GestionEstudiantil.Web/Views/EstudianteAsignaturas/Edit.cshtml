@@ -1,0 +1,40 @@
+@model GestionEstudiantil.Dominio.Entidades.EstudianteAsignatura
+
+@{
+    ViewData["Title"] = "Editar Relación";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h4>Editar Relación Estudiante - Asignatura</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="EstudianteId" />
+            <input type="hidden" asp-for="AsignaturaId" />
+
+            <div class="mb-3">
+                <label class="form-label">Estudiante</label>
+                <select class="form-select" asp-for="EstudianteId" asp-items="ViewBag.EstudianteId" disabled>
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Asignatura</label>
+                <select class="form-select" asp-for="AsignaturaId" asp-items="ViewBag.AsignaturaId" disabled>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+            <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

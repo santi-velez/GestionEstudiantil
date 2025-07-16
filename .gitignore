@@ -1,0 +1,13 @@
+bin/
+obj/
+*.user
+*.suo
+*.db
+*.sqlite
+*.bak
+*.log
+.vscode/
+*.vs/
+launchSettings.json
+appsettings.*.json
+GestionEstudiantil.Web/Properties/launchSettings.json

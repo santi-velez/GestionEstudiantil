@@ -1,0 +1,42 @@
+@model GestionEstudiantil.Dominio.Entidades.EstudianteAsignatura
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>EstudianteAsignatura</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Estudiante
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Estudiante?.Nombre
+        </dd>
+        <dt class="col-sm-2">
+            Correo Electrónico
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Estudiante?.CorreoElectronico
+        </dd>
+        <dt class="col-sm-2">
+            Asignatura
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Asignatura?.Nombre
+        </dd>
+        <dt class="col-sm-2">
+            Código Asignatura
+        </dt>
+        <dd class="col-sm-10">
+            @Model.Asignatura?.Codigo
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-estudianteId="@Model.EstudianteId" asp-route-asignaturaId="@Model.AsignaturaId">Editar</a> |
+    <a asp-action="Index">Volver a la lista</a>
+</div>
